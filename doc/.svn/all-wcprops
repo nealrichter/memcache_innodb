@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 26
+/svn/!svn/ver/86/trunk/doc
+END
+protocol.txt
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/!svn/ver/69/trunk/doc/protocol.txt
+END
+rget.txt
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/svn/!svn/ver/86/trunk/doc/rget.txt
+END
+Makefile.in
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/!svn/ver/69/trunk/doc/Makefile.in
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/!svn/ver/69/trunk/doc/Makefile.am
+END

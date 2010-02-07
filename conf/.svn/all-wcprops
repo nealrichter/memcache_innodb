@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 27
+/svn/!svn/ver/71/trunk/conf
+END
+Makefile.in
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/!svn/ver/71/trunk/conf/Makefile.in
+END
+DB_CONFIG.example
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/69/trunk/conf/DB_CONFIG.example
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/!svn/ver/71/trunk/conf/Makefile.am
+END

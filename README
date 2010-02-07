@@ -1,0 +1,73 @@
+Date:February, 2010
+Author:  Neal Richter  nrichter@gmail.com
+RE: Project MemcacheInnoDB
+
+Project MemcacheInnoDB is inspired and derived from MemcacheDB (http://memcachedb.org/), a version of 
+memcached with BerkeleyDB used as a persistent store.  A excellent overview of MemcacheDB is available here:
+http://memcachedb.org/memcachedb-guide-1.0.pdf MemcacheDB: A Complete Guide, by Steve Chu.
+
+Here the persistent layer will be replaced with Innodb, specifically embedded-InnoDB.
+http://www.innodb.com/products/embedded-innodb
+Documentation:  http://www.innodb.com/products/embedded-innodb/documentation/
+Source Code:  http://www.innodb.com/products/embedded-innodb/download/
+Binaries:   http://www.innodb.com/products/embedded-innodb/download/
+
+No real code yet, but here's the TODO:
+
+Phase 0:
+  - [DONE] convert ib_test2.c from InnoDB embedded examples to tests/iv_kvtest.c
+  - Hack an open, set, get, and close method by sturying examples & tests from InnoDB source and binary distributions
+  - Leave BDB code in to write parallel tables
+
+Phase 1:
+  - decide on InnoDB configuration options.  conf file versus CLI options?
+  - map or toss each BDB API usage to an InnoDB usage
+  - excise the BerkeleyDB code entirely
+
+Phase 2:
+  - review threading models for compatibility
+  - some work done outside of BerkeleyDB maybe taken care of within InnoDB
+     - chkpoint_thread (checkpointing)
+     - memp_trickle_thread (dirty page writer)
+     - dl_detect_thread  (deadlock detecting)
+
+Phase 3:
+  - keep banging on it until it's working well
+
+GOALS for the project:
+
+Provide a memcache compatible storage system based upon the InnoDB embedded library. 
+ - keep-it-simple-stupid and let InnoDB handle the hard stuff
+ - support transactions and replication
+ - provide complete control of all InnoDB configuration options
+ - compatibility with InnoDB tools from Innobase Oy and Percona 
+ - support multiple tables and spread objects evenly
+
+Features
+********
+* High performance read/write for a key-value based object
+* High reliable persistent storage with transaction
+* High availability data storage with replication
+* Memcache protocol compatibility
+
+Supported memcache commands
+***************************
+get(also mutiple get) 
+set, add, replace
+append/prepend
+incr, decr
+delete
+stats
+
+Unsupported memcache features
+***************************
+expiration time of objects are ignored
+
+Private commands
+****************
+???
+
+LIMITATIONS:
+ - This will use ONLY simple key-value tables with no secondary indexes
+ - If you need something else, use MySQL
+
